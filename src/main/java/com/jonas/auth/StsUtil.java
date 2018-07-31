@@ -26,8 +26,12 @@ public class StsUtil {
             DefaultAcsClient  client = initAcsClient(Constant.ACCESS_KEY_ID, Constant.ACCESS_KEY_SECRET);
             final AssumeRoleRequest request = new AssumeRoleRequest();
             request.setMethod(MethodType.POST);
+            //在RAM控制台的角色管理页面RAM控制台的角色管理列表中，进入角色详情页可以查看一个角色的RoleArn。
             request.setRoleArn(Constant.STS_ROLE_ARN);
-            request.setRoleSessionName("session-name");
+            //用户自定义参数。此参数用来区分不同的Token，可用于用户级别的访问审计。
+            request.setRoleSessionName("sts-role");
+            //授权策略Policy 语法结构，Policy长度限制为1024字节；您可以通过此参数限制生成的Token的权限，不指定则返回的Token将拥有指定角色的所有权限。
+            request.setPolicy(Constant.STS_ROLE_POLICY);
             return client.getAcsResponse(request);
         } catch (ClientException e) {
             e.printStackTrace();

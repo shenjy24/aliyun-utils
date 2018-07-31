@@ -39,11 +39,7 @@ public class Constant {
             "    {\n" +
             "      \"Action\": \"sts:AssumeRole\",\n" +
             "      \"Effect\": \"Allow\",\n" +
-            "      \"Principal\": {\n" +
-            "        \"RAM\": [\n" +
-            "          \"acs:ram::1769920393160884:root\"\n" +
-            "        ]\n" +
-            "      }\n" +
+            "      \"Resource\": \"*\"\n" +
             "    }\n" +
             "  ],\n" +
             "  \"Version\": \"1\"\n" +
