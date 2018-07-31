@@ -23,7 +23,7 @@ import com.jonas.common.Constant;
  */
 public class VodUploadUtil {
 
-    private static final DefaultAcsClient client = initVodClient(Constant.REGION_ID, Constant.ACCESS_KEY_ID, Constant.ACCESS_KEY_SECRET);
+    private static final DefaultAcsClient client = initAcsClient(Constant.REGION_ID, Constant.ACCESS_KEY_ID, Constant.ACCESS_KEY_SECRET);
 
     /**
      * 本地文件上传接口
@@ -131,7 +131,7 @@ public class VodUploadUtil {
      * @param accessKeySecret
      * @return
      */
-    public static DefaultAcsClient initVodClient(String regionId, String accessKeyId, String accessKeySecret) {
+    public static DefaultAcsClient initAcsClient(String regionId, String accessKeyId, String accessKeySecret) {
         DefaultProfile profile = DefaultProfile.getProfile(regionId, accessKeyId, accessKeySecret);
         DefaultAcsClient client = new DefaultAcsClient(profile);
         return client;

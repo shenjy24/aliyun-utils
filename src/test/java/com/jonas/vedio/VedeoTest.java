@@ -1,20 +1,31 @@
 package com.jonas.vedio;
 
+import com.aliyuncs.auth.sts.AssumeRoleResponse;
 import com.aliyuncs.vod.model.v20170321.CreateUploadVideoRequest;
 import com.aliyuncs.vod.model.v20170321.CreateUploadVideoResponse;
 import com.aliyuncs.vod.model.v20170321.RefreshUploadVideoResponse;
-import com.jonas.common.Constant;
 import org.junit.Test;
 
+import static com.jonas.auth.StsUtil.getStsAuthInfo;
 import static com.jonas.vedio.VodUploadUtil.*;
-
 
 /**
  * 【 阿里云视频点播SDK测试 】
  *
  * @author shenjy 2018/07/19
  */
-public class VedioTest {
+public class VedeoTest {
+
+    @Test
+    public void testGetStsAuthInfo() {
+        AssumeRoleResponse response = getStsAuthInfo();
+        System.out.println(response.getRequestId());
+        System.out.println(response.getCredentials().getAccessKeyId());
+        System.out.println(response.getCredentials().getAccessKeySecret());
+        System.out.println(response.getCredentials().getSecurityToken());
+        System.out.println(response.getCredentials().getExpiration());
+        System.out.println(response.getAssumedRoleUser());
+    }
 
     @Test
     public void testRefreshVideoUploadAuth() {
