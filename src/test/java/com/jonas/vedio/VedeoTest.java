@@ -1,13 +1,14 @@
 package com.jonas.vedio;
 
 import com.aliyuncs.auth.sts.AssumeRoleResponse;
-import com.aliyuncs.vod.model.v20170321.CreateUploadVideoRequest;
-import com.aliyuncs.vod.model.v20170321.CreateUploadVideoResponse;
-import com.aliyuncs.vod.model.v20170321.RefreshUploadVideoResponse;
+import com.aliyuncs.vod.model.v20170321.*;
 import org.junit.Test;
 
-import static com.jonas.auth.StsUtil.getStsAuthInfo;
+import java.util.List;
+
+import static com.jonas.auth.StsUtil.*;
 import static com.jonas.vedio.VodUploadUtil.*;
+import static com.jonas.vedio.VodPlayUtil.*;
 
 /**
  * 【 阿里云视频点播SDK测试 】
@@ -15,6 +16,27 @@ import static com.jonas.vedio.VodUploadUtil.*;
  * @author shenjy 2018/07/19
  */
 public class VedeoTest {
+
+    @Test
+    public void testGetPlayInfo() {
+        String videoId = "9f1473ec98dc4aaab0a97e2b327f2862";
+        GetPlayInfoResponse response = getPlayInfo(videoId);
+        List<GetPlayInfoResponse.PlayInfo> playInfos = response.getPlayInfoList();
+        for (GetPlayInfoResponse.PlayInfo playInfo : playInfos) {
+            System.out.println("PlayInfo.PlayURL = " + playInfo.getPlayURL());
+        }
+        System.out.println("VideoBase.Title = " + response.getVideoBase().getTitle());
+        System.out.println("RequestId = " + response.getRequestId());
+    }
+
+    @Test
+    public void testGetVideoPlayAuth() {
+        String videoId = "9f1473ec98dc4aaab0a97e2b327f2862";
+        GetVideoPlayAuthResponse response = getVideoPlayAuth(videoId);
+        if (null != response) {
+            System.out.println(response.getPlayAuth());
+        }
+    }
 
     @Test
     public void testGetStsAuthInfo() {
