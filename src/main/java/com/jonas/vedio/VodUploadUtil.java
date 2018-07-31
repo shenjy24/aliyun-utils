@@ -12,6 +12,8 @@ import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.vod.model.v20170321.CreateUploadVideoRequest;
 import com.aliyuncs.vod.model.v20170321.CreateUploadVideoResponse;
+import com.aliyuncs.vod.model.v20170321.RefreshUploadVideoRequest;
+import com.aliyuncs.vod.model.v20170321.RefreshUploadVideoResponse;
 import com.jonas.common.Constant;
 
 /**
@@ -149,4 +151,19 @@ public class VodUploadUtil {
         return null;
     }
 
+    /**
+     * 刷新视频上传凭证
+     * @param videoId
+     * @return
+     */
+    public static RefreshUploadVideoResponse refreshVideoUploadAuth(String videoId) {
+        try {
+            RefreshUploadVideoRequest request = new RefreshUploadVideoRequest();
+            request.setVideoId(videoId);
+            return client.getAcsResponse(request);
+        } catch (ClientException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
