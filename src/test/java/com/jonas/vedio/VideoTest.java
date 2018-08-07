@@ -15,11 +15,11 @@ import static com.jonas.vedio.VodPlayUtil.*;
  *
  * @author shenjy 2018/07/19
  */
-public class VedeoTest {
+public class VideoTest {
 
     @Test
     public void testGetPlayInfo() {
-        String videoId = "9f1473ec98dc4aaab0a97e2b327f2862";
+        String videoId = "a0a9f5b492544ee79502438b00591f5b";
         GetPlayInfoResponse response = getPlayInfo(videoId);
         List<GetPlayInfoResponse.PlayInfo> playInfos = response.getPlayInfoList();
         for (GetPlayInfoResponse.PlayInfo playInfo : playInfos) {
@@ -31,7 +31,7 @@ public class VedeoTest {
 
     @Test
     public void testGetVideoPlayAuth() {
-        String videoId = "9f1473ec98dc4aaab0a97e2b327f2862";
+        String videoId = "a0a9f5b492544ee79502438b00591f5b";
         GetVideoPlayAuthResponse response = getVideoPlayAuth(videoId);
         if (null != response) {
             System.out.println(response.getPlayAuth());
@@ -69,11 +69,11 @@ public class VedeoTest {
     @Test
     public void testGetUploadInfo() {
         CreateUploadVideoRequest request = new CreateUploadVideoRequest();
-        request.setTitle("变形金刚3");
-        request.setDescription("变形金刚3 机器人大战");
-        request.setFileName("movie.flv");
-        request.setTags("汽车人,飞天虎");
-        request.setCoverURL("/Users/shenjy/Downloads/movie.flv");
+        request.setTitle("最好");
+        request.setDescription("情歌");
+        request.setFileName("最好.mp3");
+        request.setTags("薛之谦,情歌");
+        request.setCoverURL("/Users/shenjy/Downloads/最好.mp3");
 
         CreateUploadVideoResponse response = getVideoUploadInfo(request);
         System.out.println("VideoId = " + response.getVideoId());
@@ -85,10 +85,10 @@ public class VedeoTest {
     @Test
     public void testUploadLocalVideo() {
         //视频标题(必选)
-        String title = "测试标题";
+        String title = "最好";
         //1.本地文件上传和文件流上传时，文件名称为上传文件绝对路径，如:/User/sample/文件名称.mp4 (必选)
         //2.网络流上传时，文件名称为源文件名，如文件名称.mp4(必选)。任何上传方式文件名必须包含扩展名
-        String fileName = "/Users/shenjy/Downloads/movie.flv";
+        String fileName = "/Users/shenjy/Downloads/最好.mp3";
         //本地文件上传
         uploadLocalVideo(title, fileName);
     }
