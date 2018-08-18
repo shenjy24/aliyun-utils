@@ -22,6 +22,21 @@ public class Constant {
     public static final String REGION_ID = "cn-shanghai";
 
     /**
+     * 地域节点
+     */
+    public static final String OSS_ENDPOINT = "oss-cn-shanghai.aliyuncs.com";
+
+    /**
+     * 下载域名
+     */
+    public static final String OSS_HOST = "shenjy.oss-cn-shanghai.aliyuncs.com";
+
+    /**
+     * bucket
+     */
+    public static final String OSS_BUCKET = "shenjy";
+
+    /**
      * STS授权服务角色arn
      */
     public static final String STS_ROLE_ARN = "acs:ram::1769920393160884:role/zhangxiaofan";
