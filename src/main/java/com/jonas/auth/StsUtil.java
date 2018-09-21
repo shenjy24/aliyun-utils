@@ -5,6 +5,7 @@ import com.aliyuncs.auth.sts.AssumeRoleRequest;
 import com.aliyuncs.auth.sts.AssumeRoleResponse;
 import com.aliyuncs.exceptions.ClientException;
 import com.aliyuncs.http.MethodType;
+import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.jonas.common.Constant;
@@ -25,6 +26,7 @@ public class StsUtil {
         try {
             DefaultAcsClient  client = initAcsClient(Constant.ACCESS_KEY_ID, Constant.ACCESS_KEY_SECRET);
             final AssumeRoleRequest request = new AssumeRoleRequest();
+            request.setProtocol(ProtocolType.HTTPS);
             request.setMethod(MethodType.POST);
             //在RAM控制台的角色管理页面RAM控制台的角色管理列表中，进入角色详情页可以查看一个角色的RoleArn。
             request.setRoleArn(Constant.STS_ROLE_ARN);
