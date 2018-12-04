@@ -41,6 +41,7 @@ public class VodPlayUtil {
         try {
             GetPlayInfoRequest request = new GetPlayInfoRequest();
             request.setVideoId(videoId);
+            request.setFormats("mp4");
             return client.getAcsResponse(request);
         } catch (ClientException e) {
             e.printStackTrace();
