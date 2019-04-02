@@ -1,5 +1,6 @@
 package com.jonas.vedio;
 
+import com.alibaba.fastjson.JSON;
 import com.aliyuncs.auth.sts.AssumeRoleResponse;
 import com.aliyuncs.vod.model.v20170321.*;
 import org.junit.Test;
@@ -19,14 +20,14 @@ public class VideoTest {
 
     @Test
     public void testGetPlayInfo() {
-        String videoId = "a0a9f5b492544ee79502438b00591f5b";
+        String videoId = "3a372bb5b5da4f91b5af8611a588ea99";
         GetPlayInfoResponse response = getPlayInfo(videoId);
+        System.out.println(JSON.toJSONString(response));
+
         List<GetPlayInfoResponse.PlayInfo> playInfos = response.getPlayInfoList();
         for (GetPlayInfoResponse.PlayInfo playInfo : playInfos) {
             System.out.println("PlayInfo.PlayURL = " + playInfo.getPlayURL());
         }
-        System.out.println("VideoBase.Title = " + response.getVideoBase().getTitle());
-        System.out.println("RequestId = " + response.getRequestId());
     }
 
     @Test
@@ -73,7 +74,7 @@ public class VideoTest {
         request.setDescription("情歌");
         request.setFileName("最好.mp3");
         request.setTags("薛之谦,情歌");
-        request.setCoverURL("/Users/shenjy/Downloads/最好.mp3");
+        request.setCoverURL("/Users/shenjy/Documents/resource/video/卡鲁.mp4");
 
         CreateUploadVideoResponse response = getVideoUploadInfo(request);
         System.out.println("VideoId = " + response.getVideoId());

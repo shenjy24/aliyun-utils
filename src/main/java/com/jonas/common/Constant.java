@@ -22,6 +22,11 @@ public class Constant {
     public static final String REGION_ID = "cn-shanghai";
 
     /**
+     * 媒体处理Region
+     */
+    public static final String MPS_REGION_ID = "cn-hangzhou";
+
+    /**
      * 地域节点
      */
     public static final String OSS_ENDPOINT = "oss-cn-shanghai.aliyuncs.com";

@@ -13,6 +13,8 @@ public class StsTest {
     @Test
     public void testSts() {
         AssumeRoleResponse response = StsUtil.getStsAuthInfo();
-        System.out.println(response.getCredentials().getAccessKeyId());
+        System.out.println("AccessKeyId: " + response.getCredentials().getAccessKeyId());
+        System.out.println("AccessKeySecret: " + response.getCredentials().getAccessKeySecret());
+        System.out.println("Token: " + response.getCredentials().getSecurityToken());
     }
 }
