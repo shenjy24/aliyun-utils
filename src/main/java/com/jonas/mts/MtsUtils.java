@@ -20,9 +20,9 @@ import java.net.URLEncoder;
  */
 public class MtsUtils {
 
-    private static final String ossInputObject = "video/卡鲁.mp4";
+    private static final String ossInputObject = "video/古剑奇谭横屏.mp4";
 
-    private static final String ossOutputObject = "卡鲁转码.mp4";
+    private static final String ossOutputObject = "video/古剑奇谭转码.mp4";
 
     public static void main(String[] args) {
         DefaultProfile profile = DefaultProfile.getProfile(Constant.MPS_REGION_ID, Constant.ACCESS_KEY_ID, Constant.ACCESS_KEY_SECRET);
@@ -61,6 +61,7 @@ public class MtsUtils {
         request.setOutputs(outputs.toJSONString());
         request.setOutputBucket("shenjy-out");
         request.setOutputLocation("oss-cn-hangzhou");
+        //管道ID
         request.setPipelineId("22fd74b65c5a4843a3a30e0e31846e3e");
 
         // 发起请求并处理应答或异常
