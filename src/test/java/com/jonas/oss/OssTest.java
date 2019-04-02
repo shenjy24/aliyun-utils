@@ -16,7 +16,7 @@ public class OssTest {
     @Test
     public void testUpload() {
         try {
-            String fileName = "/Users/shenjy/Downloads/blockchain_guide.pdf";
+            String fileName = "/Users/shenjy/Documents/resource/video/卡鲁.mp4";
             File file = new File(fileName);
             OssUtil.upload("img/" + file.getName(), new FileInputStream(file));
         } catch (IOException e) {
