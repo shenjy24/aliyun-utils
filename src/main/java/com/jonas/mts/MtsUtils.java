@@ -1,13 +1,7 @@
 package com.jonas.mts;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.aliyuncs.AcsResponse;
 import com.aliyuncs.DefaultAcsClient;
-import com.aliyuncs.exceptions.ClientException;
-import com.aliyuncs.http.HttpClientConfig;
-import com.aliyuncs.http.MethodType;
-import com.aliyuncs.http.ProtocolType;
 import com.aliyuncs.mts.model.v20140618.QueryMediaListByURLRequest;
 import com.aliyuncs.mts.model.v20140618.QueryMediaListByURLResponse;
 import com.aliyuncs.profile.DefaultProfile;
