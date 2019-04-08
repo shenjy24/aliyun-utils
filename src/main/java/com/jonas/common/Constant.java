@@ -64,4 +64,9 @@ public class Constant {
             "  ],\n" +
             "  \"Version\": \"1\"\n" +
             "}";
+
+    /**
+     * MNS endpoint
+     */
+    public static final String MNS_ENDPOINT = "http://1769920393160884.mns.cn-hangzhou.aliyuncs.com/";
 }
