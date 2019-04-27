@@ -132,7 +132,7 @@ public class VodUploadUtil {
         /* 模板组ID(可选) */
         //request.setTemplateGroupId("8c4792cbc8694e7084fd5330e56a33d");
         /* 存储区域(可选) */
-        //request.setStorageLocation("in-201703232118266-5sejdln9o.oss-cn-shanghai.aliyuncs.com");
+//        request.setStorageLocation("in-201703232118266-5sejdln9o.oss-cn-shanghai.aliyuncs.com");
         UploadVideoImpl uploader = new UploadVideoImpl();
         UploadURLStreamResponse response = uploader.uploadURLStream(request);
         return response;

@@ -1,6 +1,7 @@
 package com.jonas.vedio;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.auth.sts.AssumeRoleResponse;
 import com.aliyuncs.vod.model.v20170321.*;
 import org.junit.Test;
@@ -20,7 +21,7 @@ public class VideoTest {
 
     @Test
     public void testGetPlayInfo() {
-        String videoId = "3a372bb5b5da4f91b5af8611a588ea99";
+        String videoId = "b681a4a1dc324ad5bab1eaaea140ab2a";
         GetPlayInfoResponse response = getPlayInfo(videoId);
         System.out.println(JSON.toJSONString(response));
 
@@ -70,11 +71,16 @@ public class VideoTest {
     @Test
     public void testGetUploadInfo() {
         CreateUploadVideoRequest request = new CreateUploadVideoRequest();
-        request.setTitle("最好");
-        request.setDescription("情歌");
-        request.setFileName("最好.mp3");
-        request.setTags("薛之谦,情歌");
-        request.setCoverURL("/Users/shenjy/Documents/resource/video/卡鲁.mp4");
+        request.setTitle("卡鲁");
+        request.setDescription("3D动漫");
+        request.setFileName("卡鲁.mp4");
+        request.setTags("动漫,3D,跳舞");
+
+//        JSONObject userData = new JSONObject();
+//        JSONObject messageCallback = new JSONObject();
+//        messageCallback.put("CallbackURL", "http://");
+//        messageCallback.put("CallbackType", "http");
+//        userData.put("MessageCallback", messageCallback.toJSONString());
 
         CreateUploadVideoResponse response = getVideoUploadInfo(request);
         System.out.println("VideoId = " + response.getVideoId());
@@ -102,7 +108,7 @@ public class VideoTest {
         //2.网络流上传时，文件名称为源文件名，如文件名称.mp4(必选)。任何上传方式文件名必须包含扩展名
         String fileName = "sample.mp4";
         //待上传视频的网络流地址
-        String url = "http://video.sample.com/sample.mp4";
+        String url = "https://shenjy.oss-cn-shanghai.aliyuncs.com/vod/%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80%E6%A8%AA%E5%B1%8F.mp4";
         //网络流上传
         uploadURLStream(title, fileName, url);
     }

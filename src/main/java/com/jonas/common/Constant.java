@@ -34,7 +34,7 @@ public class Constant {
     /**
      * 下载域名
      */
-    public static final String OSS_HOST = "shenjy.oss-cn-shanghai.aliyuncs.com";
+    public static final String OSS_HOST = "https://shenjy.oss-cn-shanghai.aliyuncs.com/";
 
     /**
      * bucket

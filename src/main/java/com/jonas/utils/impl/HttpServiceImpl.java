@@ -21,7 +21,6 @@ public class HttpServiceImpl implements HttpService {
         Call call = okHttpClient.newCall(request);
         try {
             Response response = call.execute();
-            System.out.println(response.body().string());
             return response;
         } catch (IOException e) {
             e.printStackTrace();
@@ -42,7 +41,6 @@ public class HttpServiceImpl implements HttpService {
         Call call = okHttpClient.newCall(request);
         try {
             Response response = call.execute();
-            System.out.println(response.body().string());
             return response;
         } catch (IOException e) {
             e.printStackTrace();

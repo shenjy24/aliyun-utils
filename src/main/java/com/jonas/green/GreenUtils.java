@@ -34,7 +34,7 @@ public class GreenUtils {
     static {
         try {
             IClientProfile profile = DefaultProfile.getProfile(Constant.REGION_ID, Constant.ACCESS_KEY_ID, Constant.ACCESS_KEY_SECRET);
-            DefaultProfile.addEndpoint(Constant.REGION_ID, "Green", "green.cn-shanghai.aliyuncs.com");
+//            DefaultProfile.addEndpoint(Constant.REGION_ID, "Green", "green.cn-shanghai.aliyuncs.com");
             client = new DefaultAcsClient(profile);
         } catch (Exception e) {
         }
@@ -43,12 +43,12 @@ public class GreenUtils {
     public static void imageSyncScan(String url) {
         ImageSyncScanRequest request = new ImageSyncScanRequest();
         //指定api返回格式
-        request.setSysAcceptFormat(FormatType.JSON);
+        request.setAcceptFormat(FormatType.JSON);
         //指定请求方式
-        request.setSysMethod(MethodType.POST);
-        request.setSysEncoding("utf-8");
+        request.setMethod(MethodType.POST);
+        request.setEncoding("utf-8");
         //支持http和https
-        request.setSysProtocol(ProtocolType.HTTP);
+        request.setProtocol(ProtocolType.HTTP);
 
         JSONObject httpBody = new JSONObject();
         /**
@@ -77,8 +77,8 @@ public class GreenUtils {
          * 请设置超时时间, 服务端全链路处理超时时间为10秒，请做相应设置
          * 如果您设置的ReadTimeout 小于服务端处理的时间，程序中会获得一个read timeout 异常
          */
-        request.setSysConnectTimeout(3000);
-        request.setSysReadTimeout(10000);
+        request.setConnectTimeout(3000);
+        request.setReadTimeout(10000);
         HttpResponse response = null;
         try {
             response = client.doAction(request);

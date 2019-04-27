@@ -30,8 +30,9 @@ public class MtsUtils {
         try {
             QueryMediaListByURLRequest request = new QueryMediaListByURLRequest();
             String rfc3986Object = encodeByRFC3986(ossObject);
-            request.setFileURLs(ossHost + rfc3986Object);
+            request.setFileURLs(ossHost.replaceFirst("https", "http") + rfc3986Object);
             QueryMediaListByURLResponse response = client.getAcsResponse(request);
+            System.out.println(JSON.toJSONString(response));
             return response.getMediaList();
         } catch (Exception e) {
             e.printStackTrace();
@@ -61,8 +62,11 @@ public class MtsUtils {
 
     public static void main(String[] args) {
         try {
-            String ossHost = "http://shenjy-in.oss-cn-hangzhou.aliyuncs.com/";
-            String ossObject = "video/卡鲁.mp4";
+            String url = "https://shenjy-in.oss-cn-hangzhou.aliyuncs.com/video/卡鲁2.mp4";
+            String ossHost = "https://shenjy-in.oss-cn-hangzhou.aliyuncs.com/";
+//            String url = "https://sjy-test.oss-cn-hangzhou.aliyuncs.com/video/卡鲁.mp4";
+//            String ossHost = "https://sjy-test.oss-cn-hangzhou.aliyuncs.com/";
+            String ossObject = url.substring(ossHost.length());
             List<QueryMediaListByURLResponse.Media> medias = MtsUtils.getMediaInfo(ossHost, ossObject);
             System.out.println(JSON.toJSONString(medias));
         } catch (Exception e) {
