@@ -35,4 +35,11 @@ public class OssTest {
         String videoUrl = "https://shenjy.oss-cn-shanghai.aliyuncs.com/vod/%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80%E6%A8%AA%E5%B1%8F.mp4";
         System.out.println(OssUtil.getVideoCoverImg(videoUrl));
     }
+
+    @Test
+    public void testGetVideoInfo() {
+        String videoUrl = "https://shenjy.oss-cn-shanghai.aliyuncs.com/vod/%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80%E6%A8%AA%E5%B1%8F.mp4";
+        String coverImg = OssUtil.getVideoCoverImg(videoUrl);
+        System.out.println(OssUtil.getImageInfo(coverImg));
+    }
 }
