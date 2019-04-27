@@ -2,6 +2,7 @@ package com.jonas.vedio;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.aliyun.vod.upload.resp.UploadURLStreamResponse;
 import com.aliyuncs.auth.sts.AssumeRoleResponse;
 import com.aliyuncs.vod.model.v20170321.*;
 import org.junit.Test;
@@ -106,11 +107,17 @@ public class VideoTest {
         String title = "测试标题";
         //1.本地文件上传和文件流上传时，文件名称为上传文件绝对路径，如:/User/sample/文件名称.mp4 (必选)
         //2.网络流上传时，文件名称为源文件名，如文件名称.mp4(必选)。任何上传方式文件名必须包含扩展名
-        String fileName = "sample.mp4";
+        String fileName = "卡鲁.mp4";
         //待上传视频的网络流地址
         String url = "https://shenjy.oss-cn-shanghai.aliyuncs.com/vod/%E7%8E%8B%E8%80%85%E8%8D%A3%E8%80%80%E6%A8%AA%E5%B1%8F.mp4";
         //网络流上传
-        uploadURLStream(title, fileName, url);
+        UploadURLStreamResponse response = uploadURLStream(title, fileName, url);
+        System.out.println(JSON.toJSONString(response));
+        if ("Success".equals(response.getCode())) {
+            String videoId = response.getVideoId();
+            GetPlayInfoResponse getPlayInfoResponse = getPlayInfo(videoId);
+            System.out.println(JSON.toJSONString(getPlayInfoResponse));
+        }
     }
 
     @Test
