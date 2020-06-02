@@ -9,12 +9,12 @@ public class Constant {
     /**
      * 账号AK信息请填写(必选)
      */
-    public static final String ACCESS_KEY_ID = "LTAIfWYurnARVa80";
+    public static final String ACCESS_KEY_ID = "******";
 
     /**
      * 账号AK信息请填写(必选)
      */
-    public static final String ACCESS_KEY_SECRET = "3xqtScsCMXc0Oa54zI0dMB6SdjUf2S";
+    public static final String ACCESS_KEY_SECRET = "******";
 
     /**
      * 点播服务所在的Region，国内请填cn-shanghai，不要填写别的区域
