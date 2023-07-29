@@ -116,7 +116,7 @@ public class VodUploadUtil {
      * @param url
      */
     public static UploadURLStreamResponse uploadURLStream(String title, String fileName, String url) {
-        UploadURLStreamRequest request = new UploadURLStreamRequest(Constant.ACCESS_KEY_ID, Constant.ACCESS_KEY_SECRET, title, fileName, url);
+        UploadURLStreamRequest request = new UploadURLStreamRequest(Constant.ACCESS_KEY_ID, Constant.ACCESS_KEY_SECRET, title, url);
         /* 是否使用默认水印(可选)，指定模板组ID时，根据模板组配置确定是否使用默认水印*/
         //request.setShowWaterMark(true);
         /* 设置上传完成后的回调URL(可选)，建议通过点播控制台配置消息监听事件，参见文档 https://help.aliyun.com/document_detail/57029.html */

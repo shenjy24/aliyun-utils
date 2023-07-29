@@ -5,7 +5,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
-import com.aliyuncs.green.extension.uploader.ClientUploader;
 import com.aliyuncs.green.model.v20180509.ImageSyncScanRequest;
 import com.aliyuncs.http.FormatType;
 import com.aliyuncs.http.HttpResponse;
@@ -15,9 +14,7 @@ import com.aliyuncs.profile.DefaultProfile;
 import com.aliyuncs.profile.IClientProfile;
 import com.jonas.common.Constant;
 import org.apache.commons.codec.binary.StringUtils;
-import org.apache.commons.io.FileUtils;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.UUID;
