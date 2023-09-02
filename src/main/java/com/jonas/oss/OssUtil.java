@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.aliyun.oss.OSS;
 import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.model.PutObjectResult;
 import com.jonas.common.Constant;
 import com.jonas.utils.HttpService;
 import com.jonas.utils.impl.HttpServiceImpl;
@@ -42,8 +43,8 @@ public class OssUtil {
      * @param key
      * @param inputStream
      */
-    public static void uploadFileStream(String key, InputStream inputStream) {
-        ossClient.putObject(Constant.OSS_BUCKET, key, inputStream);
+    public static PutObjectResult uploadFileStream(String key, InputStream inputStream) {
+        return ossClient.putObject(Constant.OSS_BUCKET, key, inputStream);
     }
 
     /**

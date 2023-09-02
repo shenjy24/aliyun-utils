@@ -1,5 +1,7 @@
 package com.jonas.oss;
 
+import com.aliyun.oss.model.PutObjectResult;
+import com.jonas.utils.GsonUtils;
 import org.junit.Test;
 
 import java.io.File;
@@ -16,9 +18,10 @@ public class OssTest {
     @Test
     public void testUpload() {
         try {
-            String fileName = "/Users/shenjy/Documents/resource/video/卡鲁.mp4";
+            String fileName = "C:\\Users\\Administrator\\Desktop\\work\\workspace\\openfactor\\smartkit_ai\\polls\\ai\\image\\5fdc3a1d22af465194d2df058c18fd81.png";
             File file = new File(fileName);
-            OssUtil.uploadFileStream("img/" + file.getName(), new FileInputStream(file));
+            PutObjectResult result = OssUtil.uploadFileStream("img/" + file.getName(), new FileInputStream(file));
+            System.out.println(GsonUtils.toJson(result));
         } catch (IOException e) {
             e.printStackTrace();
         }
